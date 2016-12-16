@@ -25,11 +25,11 @@ IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'IIS APPPOOL\
 BEGIN
      CREATE USER [WebDatabaseUser] 
        FOR LOGIN [IIS APPPOOL\DefaultAppPool]
-     GO
-     EXEC sp_addrolemember 'db_owner', 'WebDatabaseUser'
-     GO
-END
 
+     EXEC sp_addrolemember 'db_owner', 'WebDatabaseUser'
+     
+END
+GO
 
 IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'NT AUTHORITY\IUSR')
 BEGIN
@@ -43,10 +43,11 @@ IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'NT AUTHORITY
 BEGIN
    CREATE USER [NTWebDatabaseUser] 
      FOR LOGIN [NT AUTHORITY\IUSR]
-   GO
+
    EXEC sp_addrolemember 'db_owner', 'NTWebDatabaseUser'
-   GO
+
 END
+GO
 
 SET IDENTITY_INSERT [dbo].[Customers] ON
 GO
