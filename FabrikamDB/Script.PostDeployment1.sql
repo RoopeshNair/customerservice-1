@@ -49,6 +49,10 @@ BEGIN
 END
 GO
 
+
+IF NOT EXISTS (Select ID from dbo.Customers where ID = '10')
+BEGIN
+
 SET IDENTITY_INSERT [dbo].[Customers] ON
 GO
 
@@ -163,4 +167,8 @@ GO
 INSERT [dbo].[ServiceLogEntries] ([ID], [CreatedAt], [Description], [CreatedByID], [ServiceTicketID]) VALUES (9, CAST(N'2015-08-11 18:49:52.777' AS DateTime), N'Opened ticket for customer', 2, 9)
 GO
 SET IDENTITY_INSERT [dbo].[ServiceLogEntries] OFF
+GO
+
+
+END
 GO
