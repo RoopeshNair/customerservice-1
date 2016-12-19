@@ -21,7 +21,7 @@ BEGIN
 END
 GO
 
-IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name like '%WebDatabaseUser%')
+IF NOT EXISTS (SELECT name FROM sysusers WHERE name like '%WebDatabaseUser%')
 BEGIN
      CREATE USER [WebDatabaseUser] 
        FOR LOGIN [IIS APPPOOL\DefaultAppPool]
@@ -39,7 +39,7 @@ BEGIN
 END
 GO
 
-IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name like '%NTWebDatabaseUser%')
+IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'NT AUTHORITY\IUSR')
 BEGIN
    CREATE USER [NTWebDatabaseUser] 
      FOR LOGIN [NT AUTHORITY\IUSR]
