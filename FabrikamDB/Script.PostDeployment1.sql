@@ -20,7 +20,7 @@ BEGIN
       DEFAULT_LANGUAGE=[us_english]
 END
 GO
-*/
+
 IF NOT EXISTS (SELECT name FROM sysusers WHERE name like '%WebDatabaseUser%')
 BEGIN
      CREATE USER [WebDatabaseUser] 
@@ -29,7 +29,7 @@ BEGIN
      EXEC sp_addrolemember 'db_owner', 'WebDatabaseUser'
      
 END
-GO
+GO */
 /*
 IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'NT AUTHORITY\IUSR')
 BEGIN
