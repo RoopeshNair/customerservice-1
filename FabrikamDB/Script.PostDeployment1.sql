@@ -12,7 +12,7 @@ Post-Deployment Script Template
 
 USE [FabrikamFiber-Express]
 GO
-
+/*
 IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'IIS APPPOOL\DefaultAppPool')
 BEGIN
     CREATE LOGIN [IIS APPPOOL\DefaultAppPool] 
@@ -20,7 +20,7 @@ BEGIN
       DEFAULT_LANGUAGE=[us_english]
 END
 GO
-
+*/
 IF NOT EXISTS (SELECT name FROM sysusers WHERE name like '%WebDatabaseUser%')
 BEGIN
      CREATE USER [WebDatabaseUser] 
@@ -30,7 +30,7 @@ BEGIN
      
 END
 GO
-
+/*
 IF NOT EXISTS (SELECT name FROM sys.server_principals WHERE name = 'NT AUTHORITY\IUSR')
 BEGIN
     CREATE LOGIN [NT AUTHORITY\IUSR] 
@@ -48,7 +48,7 @@ BEGIN
 
 END
 GO
-
+*/
 
 IF NOT EXISTS (Select ID from dbo.Customers where ID = '10')
 BEGIN
