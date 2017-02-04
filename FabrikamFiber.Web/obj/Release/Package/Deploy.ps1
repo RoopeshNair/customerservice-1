@@ -1,1 +1,1 @@
-xcopy /S /Y .\PackageTmp C:\mvcapp\PackageTmp\
+xcopy /S /Y .\PackageTmp\* C:\mvcapp
